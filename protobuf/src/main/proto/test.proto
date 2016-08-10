@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package com.fullcontact.test;
+
+option java_package = "com.fullcontact.nplay.model";
+option java_outer_classname = "TestMessage";
+
+message Test {
+    string payload = 1;
+}

@@ -1,5 +1,7 @@
 # IntelliJ
 .idea
+# Subproject build directories
+*/build
 # CMake
 CMakeCache.txt
 CMakeFiles

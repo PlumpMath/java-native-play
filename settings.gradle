@@ -17,3 +17,7 @@ include 'services:webservice'
 */
 
 rootProject.name = 'java_native_play'
+
+include 'jna'
+include 'protobuf'
+include 'rpc'
