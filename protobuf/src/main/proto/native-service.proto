@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_package = "com.fullcontact.nplay.service";
+
+package service;
+
+service Printer {
+    rpc PrintMsg (PrintRequest) returns (PrintReply) {}
+}
+
+message PrintRequest {
+    string msg = 1;
+    bytes payload = 2;
+}
+
+message PrintReply {
+    string msg = 1;
+}

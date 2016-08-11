@@ -30,18 +30,6 @@ subprojects {
     }
 }
 
-//shadowJar {
-//    mergeServiceFiles()
-//    exclude 'META-INF/*.DSA'
-//    exclude 'META-INF/*.RSA'
-//    Manifest {
-//        Attributes("Main-Class": mainClassName,
-//                "Implementation-Version": version)
-//    }
-//    archiveName = "root.jar"
-//    destinationDir = projectDir
-//}
-
 project(':jna') {
     apply plugin: 'application'
     apply plugin: 'com.github.johnrengelman.shadow'
@@ -61,6 +49,21 @@ project(':protobuf') {
         protoc {
             artifact = 'com.google.protobuf:protoc:3.0.0'
         }
+        plugins {
+            grpc {
+                // Be sure the gRPC versions match
+                artifact = 'io.grpc:protoc-gen-grpc-java:1.0.0-pre2'
+            }
+        }
+        generateProtoTasks {
+            all()*.plugins {
+                grpc {
+                    // Defaults to 'grpc', could just add that to sourceSets instead
+                    outputSubDir = 'java'
+                }
+            }
+        }
+        // Defaults to somewhere in the build directory
         generatedFilesBaseDir = "$projectDir/src"
     }
 }
@@ -68,5 +71,6 @@ project(':protobuf') {
 project(':rpc') {
     dependencies {
         compile project(":protobuf")
+        compile 'io.grpc:grpc-all:0.15.0'
     }
 }
