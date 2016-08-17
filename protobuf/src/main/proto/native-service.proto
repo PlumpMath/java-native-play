@@ -15,4 +15,5 @@ message PrintRequest {
 
 message PrintReply {
     string msg = 1;
+    bytes payload = 2;
 }

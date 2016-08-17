@@ -18,8 +18,9 @@ using service::PrintReply;
 
 class PrinterService final : public Printer::Service {
     Status PrintMsg(ServerContext* context, const PrintRequest* req, PrintReply* resp) override {
-        cout << req->msg() << endl;
+        cout << req->msg() << " : " << req->payload() << endl;
         resp->set_msg("!");
+        resp->set_payload("neat");
         return Status::OK;
     }
 };

@@ -596,6 +596,11 @@ public final class NativeService {
      */
     com.google.protobuf.ByteString
         getMsgBytes();
+
+    /**
+     * <code>optional bytes payload = 2;</code>
+     */
+    com.google.protobuf.ByteString getPayload();
   }
   /**
    * Protobuf type {@code service.PrintReply}
@@ -610,6 +615,7 @@ public final class NativeService {
     }
     private PrintReply() {
       msg_ = "";
+      payload_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -641,6 +647,11 @@ public final class NativeService {
               java.lang.String s = input.readStringRequireUtf8();
 
               msg_ = s;
+              break;
+            }
+            case 18: {
+
+              payload_ = input.readBytes();
               break;
             }
           }
@@ -700,6 +711,15 @@ public final class NativeService {
       }
     }
 
+    public static final int PAYLOAD_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString payload_;
+    /**
+     * <code>optional bytes payload = 2;</code>
+     */
+    public com.google.protobuf.ByteString getPayload() {
+      return payload_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -715,6 +735,9 @@ public final class NativeService {
       if (!getMsgBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, msg_);
       }
+      if (!payload_.isEmpty()) {
+        output.writeBytes(2, payload_);
+      }
     }
 
     public int getSerializedSize() {
@@ -724,6 +747,10 @@ public final class NativeService {
       size = 0;
       if (!getMsgBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, msg_);
+      }
+      if (!payload_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, payload_);
       }
       memoizedSize = size;
       return size;
@@ -743,6 +770,8 @@ public final class NativeService {
       boolean result = true;
       result = result && getMsg()
           .equals(other.getMsg());
+      result = result && getPayload()
+          .equals(other.getPayload());
       return result;
     }
 
@@ -755,6 +784,8 @@ public final class NativeService {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + MSG_FIELD_NUMBER;
       hash = (53 * hash) + getMsg().hashCode();
+      hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
+      hash = (53 * hash) + getPayload().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -875,6 +906,8 @@ public final class NativeService {
         super.clear();
         msg_ = "";
 
+        payload_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -898,6 +931,7 @@ public final class NativeService {
       public com.fullcontact.nplay.service.NativeService.PrintReply buildPartial() {
         com.fullcontact.nplay.service.NativeService.PrintReply result = new com.fullcontact.nplay.service.NativeService.PrintReply(this);
         result.msg_ = msg_;
+        result.payload_ = payload_;
         onBuilt();
         return result;
       }
@@ -942,6 +976,9 @@ public final class NativeService {
         if (!other.getMsg().isEmpty()) {
           msg_ = other.msg_;
           onChanged();
+        }
+        if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
+          setPayload(other.getPayload());
         }
         onChanged();
         return this;
@@ -1037,6 +1074,35 @@ public final class NativeService {
         onChanged();
         return this;
       }
+
+      private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes payload = 2;</code>
+       */
+      public com.google.protobuf.ByteString getPayload() {
+        return payload_;
+      }
+      /**
+       * <code>optional bytes payload = 2;</code>
+       */
+      public Builder setPayload(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        payload_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes payload = 2;</code>
+       */
+      public Builder clearPayload() {
+        
+        payload_ = getDefaultInstance().getPayload();
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -1106,11 +1172,11 @@ public final class NativeService {
   static {
     java.lang.String[] descriptorData = {
       "\n\024native-service.proto\022\007service\",\n\014Print" +
-      "Request\022\013\n\003msg\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\"\031\n" +
-      "\nPrintReply\022\013\n\003msg\030\001 \001(\t2C\n\007Printer\0228\n\010P" +
-      "rintMsg\022\025.service.PrintRequest\032\023.service" +
-      ".PrintReply\"\000B\037\n\035com.fullcontact.nplay.s" +
-      "erviceb\006proto3"
+      "Request\022\013\n\003msg\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\"*\n" +
+      "\nPrintReply\022\013\n\003msg\030\001 \001(\t\022\017\n\007payload\030\002 \001(" +
+      "\0142C\n\007Printer\0228\n\010PrintMsg\022\025.service.Print" +
+      "Request\032\023.service.PrintReply\"\000B\037\n\035com.fu" +
+      "llcontact.nplay.serviceb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1135,7 +1201,7 @@ public final class NativeService {
     internal_static_service_PrintReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_service_PrintReply_descriptor,
-        new java.lang.String[] { "Msg", });
+        new java.lang.String[] { "Msg", "Payload", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
