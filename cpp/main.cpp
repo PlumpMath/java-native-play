@@ -4,6 +4,9 @@
 
 #include <dlib/image_processing/frontal_face_detector.h>
 
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/mat.hpp>
+
 #include "native-service.pb.h"
 #include "native-service.grpc.pb.h"
 
@@ -24,9 +27,12 @@ class PrinterService final : public Printer::Service {
         resp->set_msg("!");
         resp->set_payload("neat");
         dlib::frontal_face_detector detector = dlib::get_frontal_face_detector();
+        cv::Mat cvimage;
         return Status::OK;
     }
 };
+
+
 
 int main(int argc, char** argv) {
 

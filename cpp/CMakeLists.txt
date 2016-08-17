@@ -12,6 +12,8 @@ include(${DLIB_PATH}/cmake)
 include(FindProtobuf)
 find_package(Protobuf REQUIRED)
 
+find_package(OpenCV REQUIRED)
+
 # gRPC code requires c++11 (also c++11 is great)
 # On OSX, this requires cmake 3.2+
 set(CMAKE_CXX_STANDARD 11)
@@ -19,8 +21,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(${PROTO_PATH} "${CMAKE_CURRENT_BINARY_DIR}/proto")
 add_subdirectory(${DLIB_PATH} "${CMAKE_CURRENT_BINARY_DIR}/dlib")
-include_directories("${CMAKE_CURRENT_BINARY_DIR}/proto")
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/proto)
 include_directories(${Protobuf_INCLUDE_DIRS})
+include_directories(${OpenCV_INCLUDE_DIRS})
 
 add_executable(runner main.cpp ${SOURCE})
-target_link_libraries(runner nativeService protobuf grpc++ dlib)
+target_link_libraries(runner nativeService protobuf grpc++ dlib ${OpenCV_LIBS})
