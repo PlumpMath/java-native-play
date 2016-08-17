@@ -2,6 +2,8 @@
 
 #include <grpc++/grpc++.h>
 
+#include <dlib/image_processing/frontal_face_detector.h>
+
 #include "native-service.pb.h"
 #include "native-service.grpc.pb.h"
 
@@ -21,6 +23,7 @@ class PrinterService final : public Printer::Service {
         cout << req->msg() << " : " << req->payload() << endl;
         resp->set_msg("!");
         resp->set_payload("neat");
+        dlib::frontal_face_detector detector = dlib::get_frontal_face_detector();
         return Status::OK;
     }
 };
