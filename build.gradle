@@ -72,5 +72,6 @@ project(':rpc') {
     dependencies {
         compile project(":protobuf")
         compile 'io.grpc:grpc-all:0.15.0'
+        compile 'org.threadly:threadly:4.6.2'
     }
 }

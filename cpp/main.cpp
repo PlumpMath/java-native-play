@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <chrono>
 
 #include <grpc++/grpc++.h>
 
@@ -30,12 +31,16 @@ using service::Printer;
 using service::PrintRequest;
 using service::PrintReply;
 
+// chrono code is spread, cleaner to use the namespace
+using namespace std::chrono;
+
 cv::Mat cvread(const char* bytes, int len) {
     return cv::imdecode(vector<char>(bytes, bytes + len), CV_LOAD_IMAGE_GRAYSCALE);
 }
 
 class PrinterService final : public Printer::Service {
     Status PrintMsg(ServerContext* context, const PrintRequest* req, PrintReply* resp) override {
+        auto t1 = high_resolution_clock::now();
         cout << req->msg() << endl;
         //resp->set_msg("!");
         resp->set_payload("neat");
@@ -58,6 +63,8 @@ class PrinterService final : public Printer::Service {
         dlib::frontal_face_detector detector = dlib::get_frontal_face_detector();
         std::vector<dlib::rectangle> dets = detector(tempImage);
         resp->set_msg(std::to_string(dets.size()));
+        auto t2 = high_resolution_clock::now();
+        cout << duration_cast<milliseconds>(t2 - t1).count() << endl;
         return Status::OK;
     }
 };
