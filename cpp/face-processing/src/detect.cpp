@@ -5,6 +5,8 @@
 #include <opencv2/core/mat.hpp>
 
 #include <algorithm>
+#include <chrono>
+#include <iostream>
 
 #include "face/detect.hpp"
 
@@ -12,12 +14,17 @@ using std::vector;
 using std::uint8_t;
 using std::min;
 using std::max;
+using namespace std;
+using namespace std::chrono;
 
 int fc::countFaces(const vector<uint8_t>& bytes) {
+        auto t1 = high_resolution_clock::now();
         auto img = cv::imdecode(bytes, CV_LOAD_IMAGE_GRAYSCALE);
+        auto t2 = high_resolution_clock::now();
         dlib::cv_image<unsigned char> dlibImg(img);
         dlib::array2d<unsigned char> tempImage;
         dlib::assign_image(tempImage, dlibImg);
+        auto t3 = high_resolution_clock::now();
 
         //scale the image up until its smallest side is greater than 1000 pixels,
         //but just in case we are fed some funky images, stop scaling up if the
@@ -29,8 +36,14 @@ int fc::countFaces(const vector<uint8_t>& bytes) {
             //Pyramid_up effectively doubles the width and height of the image
             dlib::pyramid_up(tempImage);
         }
+        auto t4 = high_resolution_clock::now();
 
         dlib::frontal_face_detector detector = dlib::get_frontal_face_detector();
         std::vector<dlib::rectangle> dets = detector(tempImage);
+        auto fin = high_resolution_clock::now();
+        cout << duration_cast<milliseconds>( t2 - t1 ).count() << endl;
+        cout << duration_cast<milliseconds>( t3 - t2 ).count() << endl;
+        cout << duration_cast<milliseconds>( t4 - t3 ).count() << endl;
+        cout << duration_cast<milliseconds>( fin - t4 ).count() << endl;
         return dets.size();
 }
