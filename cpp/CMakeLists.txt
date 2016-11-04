@@ -12,9 +12,6 @@ set(GTEST_PATH "" CACHE PATH "Directory containing CMakeLists.txt for googletest
 # https://github.com/grpc/grpc/blob/release-0_14/INSTALL.md
 include(findGRPC/FindGRPC.cmake)
 
-include(FindProtobuf)
-find_package(Protobuf REQUIRED)
-
 include(${DLIB_PATH}/cmake)
 find_package(OpenCV REQUIRED)
 
@@ -28,7 +25,6 @@ add_subdirectory(${DLIB_PATH} "${CMAKE_CURRENT_BINARY_DIR}/dlib")
 add_subdirectory(face-processing "${CMAKE_CURRENT_BINARY_DIR}/face-processing")
 add_subdirectory(${GTEST_PATH} "${CMAKE_CURRENT_BINARY_DIR}/googletest")
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/proto)
-include_directories(${Protobuf_INCLUDE_DIRS})
 include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(face-processing/include)
 
