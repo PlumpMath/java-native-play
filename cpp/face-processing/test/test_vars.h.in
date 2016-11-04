@@ -1,0 +1,6 @@
+#pragma once
+
+// Template file which gets pre-processed by CMake to inject the directory for test data
+const char* DATA_PATH = "${CMAKE_CURRENT_SOURCE_DIR}/data";
+
+// If more paths to directories in the source tree are needed, add them below

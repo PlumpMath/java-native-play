@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.2)
 
+# Set up CMake scaffolding for test running -- generates `make test' target
+# Must come before add_subdirectory calls so that add_test calls therein work
+enable_testing()
+
 set(PROTO_PATH "" CACHE PATH "Directory containing CMakeLists.txt for protobuf definitions.")
-set(DLIB_PATH "" CACHE PATH "Directory containing the dlib's cmake file for inclusion.")
+set(DLIB_PATH "" CACHE PATH "Directory containing dlib's 'cmake' file.")
+set(GTEST_PATH "" CACHE PATH "Directory containing CMakeLists.txt for googletest.")
 
 # https://github.com/grpc/homebrew-grpc
 # https://github.com/grpc/grpc/blob/release-0_14/INSTALL.md
@@ -21,6 +26,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_subdirectory(${PROTO_PATH} "${CMAKE_CURRENT_BINARY_DIR}/proto")
 add_subdirectory(${DLIB_PATH} "${CMAKE_CURRENT_BINARY_DIR}/dlib")
 add_subdirectory(face-processing "${CMAKE_CURRENT_BINARY_DIR}/face-processing")
+add_subdirectory(${GTEST_PATH} "${CMAKE_CURRENT_BINARY_DIR}/googletest")
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/proto)
 include_directories(${Protobuf_INCLUDE_DIRS})
 include_directories(${OpenCV_INCLUDE_DIRS})
