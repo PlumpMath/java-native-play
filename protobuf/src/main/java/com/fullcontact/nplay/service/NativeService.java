@@ -1152,6 +1152,867 @@ public final class NativeService {
 
   }
 
+  public interface FaceDetectionRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:service.FaceDetectionRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional bytes payload = 1;</code>
+     */
+    com.google.protobuf.ByteString getPayload();
+  }
+  /**
+   * Protobuf type {@code service.FaceDetectionRequest}
+   */
+  public  static final class FaceDetectionRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:service.FaceDetectionRequest)
+      FaceDetectionRequestOrBuilder {
+    // Use FaceDetectionRequest.newBuilder() to construct.
+    private FaceDetectionRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FaceDetectionRequest() {
+      payload_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private FaceDetectionRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+
+              payload_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.fullcontact.nplay.service.NativeService.internal_static_service_FaceDetectionRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.fullcontact.nplay.service.NativeService.internal_static_service_FaceDetectionRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.fullcontact.nplay.service.NativeService.FaceDetectionRequest.class, com.fullcontact.nplay.service.NativeService.FaceDetectionRequest.Builder.class);
+    }
+
+    public static final int PAYLOAD_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString payload_;
+    /**
+     * <code>optional bytes payload = 1;</code>
+     */
+    public com.google.protobuf.ByteString getPayload() {
+      return payload_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!payload_.isEmpty()) {
+        output.writeBytes(1, payload_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!payload_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, payload_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.fullcontact.nplay.service.NativeService.FaceDetectionRequest)) {
+        return super.equals(obj);
+      }
+      com.fullcontact.nplay.service.NativeService.FaceDetectionRequest other = (com.fullcontact.nplay.service.NativeService.FaceDetectionRequest) obj;
+
+      boolean result = true;
+      result = result && getPayload()
+          .equals(other.getPayload());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
+      hash = (53 * hash) + getPayload().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.fullcontact.nplay.service.NativeService.FaceDetectionRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code service.FaceDetectionRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:service.FaceDetectionRequest)
+        com.fullcontact.nplay.service.NativeService.FaceDetectionRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.fullcontact.nplay.service.NativeService.internal_static_service_FaceDetectionRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.fullcontact.nplay.service.NativeService.internal_static_service_FaceDetectionRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.fullcontact.nplay.service.NativeService.FaceDetectionRequest.class, com.fullcontact.nplay.service.NativeService.FaceDetectionRequest.Builder.class);
+      }
+
+      // Construct using com.fullcontact.nplay.service.NativeService.FaceDetectionRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        payload_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.fullcontact.nplay.service.NativeService.internal_static_service_FaceDetectionRequest_descriptor;
+      }
+
+      public com.fullcontact.nplay.service.NativeService.FaceDetectionRequest getDefaultInstanceForType() {
+        return com.fullcontact.nplay.service.NativeService.FaceDetectionRequest.getDefaultInstance();
+      }
+
+      public com.fullcontact.nplay.service.NativeService.FaceDetectionRequest build() {
+        com.fullcontact.nplay.service.NativeService.FaceDetectionRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.fullcontact.nplay.service.NativeService.FaceDetectionRequest buildPartial() {
+        com.fullcontact.nplay.service.NativeService.FaceDetectionRequest result = new com.fullcontact.nplay.service.NativeService.FaceDetectionRequest(this);
+        result.payload_ = payload_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.fullcontact.nplay.service.NativeService.FaceDetectionRequest) {
+          return mergeFrom((com.fullcontact.nplay.service.NativeService.FaceDetectionRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.fullcontact.nplay.service.NativeService.FaceDetectionRequest other) {
+        if (other == com.fullcontact.nplay.service.NativeService.FaceDetectionRequest.getDefaultInstance()) return this;
+        if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
+          setPayload(other.getPayload());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.fullcontact.nplay.service.NativeService.FaceDetectionRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.fullcontact.nplay.service.NativeService.FaceDetectionRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes payload = 1;</code>
+       */
+      public com.google.protobuf.ByteString getPayload() {
+        return payload_;
+      }
+      /**
+       * <code>optional bytes payload = 1;</code>
+       */
+      public Builder setPayload(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        payload_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes payload = 1;</code>
+       */
+      public Builder clearPayload() {
+        
+        payload_ = getDefaultInstance().getPayload();
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:service.FaceDetectionRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:service.FaceDetectionRequest)
+    private static final com.fullcontact.nplay.service.NativeService.FaceDetectionRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.fullcontact.nplay.service.NativeService.FaceDetectionRequest();
+    }
+
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FaceDetectionRequest>
+        PARSER = new com.google.protobuf.AbstractParser<FaceDetectionRequest>() {
+      public FaceDetectionRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new FaceDetectionRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FaceDetectionRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FaceDetectionRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public com.fullcontact.nplay.service.NativeService.FaceDetectionRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FaceDetectionResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:service.FaceDetectionResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional uint32 count = 1;</code>
+     */
+    int getCount();
+  }
+  /**
+   * Protobuf type {@code service.FaceDetectionResponse}
+   */
+  public  static final class FaceDetectionResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:service.FaceDetectionResponse)
+      FaceDetectionResponseOrBuilder {
+    // Use FaceDetectionResponse.newBuilder() to construct.
+    private FaceDetectionResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FaceDetectionResponse() {
+      count_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private FaceDetectionResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              count_ = input.readUInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.fullcontact.nplay.service.NativeService.internal_static_service_FaceDetectionResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.fullcontact.nplay.service.NativeService.internal_static_service_FaceDetectionResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.fullcontact.nplay.service.NativeService.FaceDetectionResponse.class, com.fullcontact.nplay.service.NativeService.FaceDetectionResponse.Builder.class);
+    }
+
+    public static final int COUNT_FIELD_NUMBER = 1;
+    private int count_;
+    /**
+     * <code>optional uint32 count = 1;</code>
+     */
+    public int getCount() {
+      return count_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (count_ != 0) {
+        output.writeUInt32(1, count_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (count_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, count_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.fullcontact.nplay.service.NativeService.FaceDetectionResponse)) {
+        return super.equals(obj);
+      }
+      com.fullcontact.nplay.service.NativeService.FaceDetectionResponse other = (com.fullcontact.nplay.service.NativeService.FaceDetectionResponse) obj;
+
+      boolean result = true;
+      result = result && (getCount()
+          == other.getCount());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getCount();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.fullcontact.nplay.service.NativeService.FaceDetectionResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code service.FaceDetectionResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:service.FaceDetectionResponse)
+        com.fullcontact.nplay.service.NativeService.FaceDetectionResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.fullcontact.nplay.service.NativeService.internal_static_service_FaceDetectionResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.fullcontact.nplay.service.NativeService.internal_static_service_FaceDetectionResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.fullcontact.nplay.service.NativeService.FaceDetectionResponse.class, com.fullcontact.nplay.service.NativeService.FaceDetectionResponse.Builder.class);
+      }
+
+      // Construct using com.fullcontact.nplay.service.NativeService.FaceDetectionResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        count_ = 0;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.fullcontact.nplay.service.NativeService.internal_static_service_FaceDetectionResponse_descriptor;
+      }
+
+      public com.fullcontact.nplay.service.NativeService.FaceDetectionResponse getDefaultInstanceForType() {
+        return com.fullcontact.nplay.service.NativeService.FaceDetectionResponse.getDefaultInstance();
+      }
+
+      public com.fullcontact.nplay.service.NativeService.FaceDetectionResponse build() {
+        com.fullcontact.nplay.service.NativeService.FaceDetectionResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.fullcontact.nplay.service.NativeService.FaceDetectionResponse buildPartial() {
+        com.fullcontact.nplay.service.NativeService.FaceDetectionResponse result = new com.fullcontact.nplay.service.NativeService.FaceDetectionResponse(this);
+        result.count_ = count_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.fullcontact.nplay.service.NativeService.FaceDetectionResponse) {
+          return mergeFrom((com.fullcontact.nplay.service.NativeService.FaceDetectionResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.fullcontact.nplay.service.NativeService.FaceDetectionResponse other) {
+        if (other == com.fullcontact.nplay.service.NativeService.FaceDetectionResponse.getDefaultInstance()) return this;
+        if (other.getCount() != 0) {
+          setCount(other.getCount());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.fullcontact.nplay.service.NativeService.FaceDetectionResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.fullcontact.nplay.service.NativeService.FaceDetectionResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int count_ ;
+      /**
+       * <code>optional uint32 count = 1;</code>
+       */
+      public int getCount() {
+        return count_;
+      }
+      /**
+       * <code>optional uint32 count = 1;</code>
+       */
+      public Builder setCount(int value) {
+        
+        count_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 count = 1;</code>
+       */
+      public Builder clearCount() {
+        
+        count_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:service.FaceDetectionResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:service.FaceDetectionResponse)
+    private static final com.fullcontact.nplay.service.NativeService.FaceDetectionResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.fullcontact.nplay.service.NativeService.FaceDetectionResponse();
+    }
+
+    public static com.fullcontact.nplay.service.NativeService.FaceDetectionResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FaceDetectionResponse>
+        PARSER = new com.google.protobuf.AbstractParser<FaceDetectionResponse>() {
+      public FaceDetectionResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new FaceDetectionResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FaceDetectionResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FaceDetectionResponse> getParserForType() {
+      return PARSER;
+    }
+
+    public com.fullcontact.nplay.service.NativeService.FaceDetectionResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_service_PrintRequest_descriptor;
   private static final 
@@ -1162,6 +2023,16 @@ public final class NativeService {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_service_PrintReply_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_service_FaceDetectionRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_service_FaceDetectionRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_service_FaceDetectionResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_service_FaceDetectionResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1174,9 +2045,14 @@ public final class NativeService {
       "\n\024native-service.proto\022\007service\",\n\014Print" +
       "Request\022\013\n\003msg\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\"*\n" +
       "\nPrintReply\022\013\n\003msg\030\001 \001(\t\022\017\n\007payload\030\002 \001(" +
-      "\0142C\n\007Printer\0228\n\010PrintMsg\022\025.service.Print" +
-      "Request\032\023.service.PrintReply\"\000B\037\n\035com.fu" +
-      "llcontact.nplay.serviceb\006proto3"
+      "\014\"\'\n\024FaceDetectionRequest\022\017\n\007payload\030\001 \001" +
+      "(\014\"&\n\025FaceDetectionResponse\022\r\n\005count\030\001 \001" +
+      "(\r2C\n\007Printer\0228\n\010PrintMsg\022\025.service.Prin" +
+      "tRequest\032\023.service.PrintReply\"\0002^\n\rFaceD" +
+      "etection\022M\n\nCountFaces\022\035.service.FaceDet" +
+      "ectionRequest\032\036.service.FaceDetectionRes" +
+      "ponse\"\000B\037\n\035com.fullcontact.nplay.service",
+      "b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1202,6 +2078,18 @@ public final class NativeService {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_service_PrintReply_descriptor,
         new java.lang.String[] { "Msg", "Payload", });
+    internal_static_service_FaceDetectionRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_service_FaceDetectionRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_service_FaceDetectionRequest_descriptor,
+        new java.lang.String[] { "Payload", });
+    internal_static_service_FaceDetectionResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_service_FaceDetectionResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_service_FaceDetectionResponse_descriptor,
+        new java.lang.String[] { "Count", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -22,27 +22,24 @@ using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
 
-using service::Printer;
-using service::PrintRequest;
-using service::PrintReply;
+using service::FaceDetection;
+using service::FaceDetectionRequest;
+using service::FaceDetectionResponse;
 
-class PrinterService final : public Printer::Service {
-    Status PrintMsg(ServerContext* context, const PrintRequest* req, PrintReply* resp) override {
-        cout << req->msg() << endl;
-        //resp->set_msg("!");
-        resp->set_payload("neat");
+class FaceDetectionService final : public FaceDetection::Service {
+    Status CountFaces(ServerContext* context, const FaceDetectionRequest* req, FaceDetectionResponse* resp) override {
         // Convert types so we get a vector, which is convertable to cv::InputArray
         // http://docs.opencv.org/2.4/modules/core/doc/basic_structures.html?highlight=inputarray#InputArray
         auto bytes = vector<uint8_t>(req->payload().begin(), req->payload().end());
         int faceCount = fc::countFaces(bytes);
-        resp->set_msg(std::to_string(faceCount));
+        resp->set_count(faceCount);
         return Status::OK;
     }
 };
 
 int main(int argc, char** argv) {
 
-    PrinterService service;
+    FaceDetectionService service;
 
     ServerBuilder builder;
     builder.AddListeningPort("0.0.0.0:50051", grpc::InsecureServerCredentials());

@@ -17,3 +17,15 @@ message PrintReply {
     string msg = 1;
     bytes payload = 2;
 }
+
+service FaceDetection {
+    rpc CountFaces (FaceDetectionRequest) returns (FaceDetectionResponse) {}
+}
+
+message FaceDetectionRequest {
+    bytes payload = 1;
+}
+
+message FaceDetectionResponse {
+    uint32 count = 1;
+}
