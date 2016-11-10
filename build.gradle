@@ -71,6 +71,7 @@ project(':protobuf') {
 project(':rpc') {
     dependencies {
         compile project(":protobuf")
-        compile 'io.grpc:grpc-all:0.15.0'
+        // https://mvnrepository.com/artifact/io.grpc/grpc-all
+        compile group: 'io.grpc', name: 'grpc-all', version: '1.0.0-pre2'
     }
 }
