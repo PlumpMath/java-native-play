@@ -15,7 +15,7 @@ TEST(detect, one) {
     ifstream img_file_stream(img_file);
     if (img_file_stream.is_open()) {
         // Might be a cleaner/faster way to do this, but this is negligibly small
-        string byteString(std::istreambuf_iterator<char>(img_file_stream), {});
+        string byteString(std::istreambuf_iterator<char>(img_file_stream), std::istreambuf_iterator<char>{});
         auto bytes = vector<uint8_t>(byteString.begin(), byteString.end());
         int faceCount = fc::countFaces(bytes);
         EXPECT_EQ(1, faceCount);
